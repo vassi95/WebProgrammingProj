@@ -1,0 +1,27 @@
+doctype html
+html
+    head
+        title User Profile Page
+        style
+            include ../styles/styles.css
+    body
+        a(href='/user/' + user.user_id class="link") Back to Profile
+        p
+        p
+        div(class='form')
+            h3 User Info:
+            p Name: #{user.first_name} #{user.last_name} 
+            p Username: #{user.username}
+            p E-mail: #{user.email} 
+            h1
+
+            h3 Favourite Games:
+            ol
+                each game in games
+                    li
+                        a(href="/api/game/show/" + game.game_id class='link') #{game.title}  
+                        form(action="/api/user/"+ user.user_id + "/game/delete/" + game.game_id + "?_method=DELETE" method="post")
+                                    input(type="submit" value="Remove from favourites" class='input')
+                else
+                    p There are no favourite games!
+        

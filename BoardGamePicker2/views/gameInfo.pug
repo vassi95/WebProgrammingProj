@@ -1,0 +1,19 @@
+doctype html
+html
+    head
+        title Game Info Page
+        style
+            include ../styles/styles.css
+    body
+        div(class='form')
+            h3 Game Info:
+            p Title: #{game.title} 
+            p Category: #{game.category}
+            p Min Players: #{game.min_players} 
+            p Max Players: #{game.max_players} 
+            p Playing Time: #{game.playing_time} 
+            p Appropriate for Age: #{game.age} 
+            p Complexity: #{game.complexity} 
+            p Description: #{game.description} 
+
+        

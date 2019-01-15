@@ -1,0 +1,31 @@
+doctype html
+html
+    head
+        title Edit Game Page
+        style
+            include ../styles/styles.css
+    body
+        div(class='form')
+            form(action="/api/game/add"  class="login-form" method="post")
+                h3 Title
+                input(type="text" name="title" required=true)
+                h3 Category
+                input(type="text" name="category" required=true)
+                h3 Min Players
+                input(type="number" min=1 max=10 name="min_players" required=true)
+                h3 Max Players
+                input(type="number" min=2 max=10 name="max_players" required=true)
+                h3 Playing Time
+                input(type="text" name="playing_time" required=true)
+                h3 Appropriate For Age
+                input(type="number" min=1 max=100 name="age" required=true)
+                h3 Complexity
+                input(type="text" min=1 max=10 name="complexity" required=true)
+                h3 Description
+                textarea(name="description" maxlength=1000 cols="40" rows="10" required=true)
+                h3 Image
+                input(type="file" name="filetoupload"  accept="image/png, image/jpeg" )
+                p
+                button Validate
+                       
+    

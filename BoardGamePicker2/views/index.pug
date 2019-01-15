@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+        title Home Page
+        script(src="login_register_helper.js" type="text/javascript")
+        style
+            include ../styles/styles.css
+    body
+        div(class='home-page')
+            if errors
+                each error in errors
+                    p(style={color: 'red'}) <b>#{error}</b>
+            div(class='form')
+                form(id="reg" class="register-form" action="/api/register/" method="post")
+                    input(type="text" name="firstName" placeholder="First Name" required=true)
+                    input(type="text" name="lastName" placeholder="Last Name" required=true)
+                    input(type="text" name="username" placeholder="Username" required=true)
+                    input(type="email" name="email" placeholder="E-mail" required=true)
+                    input(type="password" name="user_password" placeholder="Password" required=true)
+                    input(type="password" name="confirmedPassword" placeholder="Confirm password" required=true)
+                    button Submit
+                    p(class="message") 
+                        | Already registered? 
+                        a(href="/" onClick="showLoginForm(); return false;") Sign In
+
+                form(id="log" class="login-form" action="/api/login/" method="post")
+                    input(type="text" name="username" placeholder="Username" required=true)
+                    input(type="password" name="password" placeholder="Password" required=true)
+                    button Login
+                    p(class="message")
+                        | Not registered? 
+                        a(href="/" onClick="showRegisterForm(); return false;") Create an account
+

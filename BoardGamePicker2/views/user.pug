@@ -1,0 +1,18 @@
+doctype html
+html
+    head
+        title User Page
+        style
+            include ../styles/styles.css
+    body
+        div(class='form')
+            p Logged as #{user.username} !
+            a(href='/' class="link") Logout
+            a(href="/api/user/profile/" + user.user_id class="link") Profile
+        div(class='form')
+            a(href="/api/games/pickrandom/" + user.user_id class='link') Pick Random Game
+        div(class='form')
+            a(href="/api/games/filter/" + user.user_id class='link') Filter Games
+        
+                       
+    

@@ -1,0 +1,17 @@
+doctype html
+html
+    head
+        title 
+        style
+            include ../styles/styles.css
+    body
+        a(href='/user/' + userId class="link") Back to Profile
+        div(class='form')
+            form(id="filter" class="filter-form" action="/api/games/getfiltered/"+userId method="post")
+                input(type="text" name="title" placeholder="Title")
+                input(type="text" name="category" placeholder="Category")
+                input(type="text" name="min_players" placeholder="Min Players(1-10) e.g. 2")
+                input(type="text" name="max_players" placeholder="Max Players(2-10) e.g. 5")
+                input(type="text" name="age" placeholder="Appropriate for Age(1-100) e.g. 12")
+                input(type="text" name="complexity" placeholder="Complexity(1-10) e.g. 7")
+                button Find Games

@@ -1,0 +1,51 @@
+doctype html
+html
+    head
+        title Admin Page
+        style
+            include ../styles/styles.css
+    body
+        div(class='form')
+            p Logged as Admin!
+            a(href='/' class="link") Logout 
+            h1
+            a(href="/api/game" class="link") Add Game
+            a(href="/api/users/" class="link") Show Users
+
+        if errors
+            a(href="/admin" class="link") Refresh
+            each error in errors
+                p(style={color: 'red'}) <b>#{error}</b>               
+        else
+            table
+                thead(class="tableHead")
+                    tr
+                        th(class='dataColumn') Operations
+                        th(class='dataColumn') Image
+                        th(class='dataColumn') Title
+                        th(class='dataColumn') Category
+                        th(class='dataColumn') Min Players
+                        th(class='dataColumn') Max Players
+                        th(class='dataColumn') Playing Time
+                        th(class='dataColumn') Appropriate for Age
+                        th(class='dataColumn') Complexity
+                        th(class='dataColumnDescription') Description
+                tbody
+                    each game in games
+                        tr
+                            td
+                                a(href="/api/game/update/"+game.game_id class='edit') Edit
+                                h1
+                                form(action="/api/game/delete/" + game.game_id + "?_method=DELETE" method="post")
+                                    input(type="submit" value="Delete" class='input' )
+                            td
+                                img( height="300" width="300" src="data:image/jpeg;base64,"+game.image)
+                            td=game.title
+                            td=game.category
+                            td=game.min_players
+                            td=game.max_players
+                            td="~"+ game.playing_time + " min"
+                            td=game.age + "+"
+                            td=game.complexity + "/10"
+                            td=game.description
+

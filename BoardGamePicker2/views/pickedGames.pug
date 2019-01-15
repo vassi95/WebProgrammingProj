@@ -1,0 +1,40 @@
+doctype html
+html
+    head
+        title Picked Games Page
+        style
+            include ../styles/styles.css
+    body
+        a(href='/user/' + userId class="link") Back to Profile
+        p
+        p
+
+        table
+            thead(class='tableHead')
+                tr
+                    th(class='dataColumn') Operations
+                    th(class='dataColumn') Image
+                    th(class='dataColumn') Title
+                    th(class='dataColumn') Category
+                    th(class='dataColumn') Min Players
+                    th(class='dataColumn') Max Players
+                    th(class='dataColumn') Playing Time
+                    th(class='dataColumn') Appropriate for Age
+                    th(class='dataColumn') Complexity
+                    th(class='dataColumnDescription') Description
+            tbody
+                each game in games
+                    tr
+                        td
+                            form(action="/api/user/"+ userId + "/favourites/add/" + game.game_id method="post")
+                                input(type="submit" value="Add to Favourites")
+                        td
+                            img( height="300" width="300" src="data:image/jpeg;base64,"+game.image)
+                        td=game.title
+                        td=game.category
+                        td=game.min_players
+                        td=game.max_players
+                        td="~"+ game.playing_time + " min"
+                        td=game.age + "+"
+                        td=game.complexity + "/10"
+                        td=game.description

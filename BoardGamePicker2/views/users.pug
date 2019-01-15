@@ -1,0 +1,36 @@
+doctype html
+html
+    head
+        title Users Page
+        style
+            include ../styles/styles.css
+    body
+        a(href='/admin' class="link") Back
+        p
+        p
+                       
+    
+        table(class='tables')
+            thead(class="tableHead")
+                tr
+                    th(class='dataColumn') Operations
+                    th(class='dataColumn') First Name
+                    th(class='dataColumn') Last Name
+                    th(class='dataColumn') Username
+                    th(class='dataColumn') E-mail
+                    th(class='dataColumn') Role
+            tbody
+                each user in users
+                    tr
+                        td
+                            form(action="/api/users/addAdmin/" + user.user_id + "?_method=PATCH" method="post")
+                                input(type="submit" value="Add Admin privileges ")
+                            h2
+                            form(action="/api/users/removeAdmin/" + user.user_id + "?_method=PATCH" method="post")
+                                input(type="submit" value="Remove Admin privileges")
+                        td=user.first_name
+                        td=user.last_name
+                        td=user.username
+                        td=user.email
+                        td=user.user_role
+

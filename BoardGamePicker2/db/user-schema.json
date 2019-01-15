@@ -1,0 +1,43 @@
+{
+    "title": "User",
+    "type": "object",
+    "properties": {
+        "firstName": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 30
+        },
+        "lastName": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 30
+        },
+        "username": {
+            "type": "string",
+            "minimum": 3,
+            "maximum": 20
+        },
+        "email": {
+            "type": "string",
+            "minimum": 5,
+            "maximum": 50
+        },
+        "user_password": {
+            "type": "string",
+            "minimum": 5,
+            "maximum": 100
+        },
+        "confirmedPassword": {
+            "type": "string",
+            "minimum": 5,
+            "maximum": 100
+        }
+    },
+    "required": [
+        "firstName",
+        "lastName",
+        "username",
+        "email",
+        "user_password"
+    ]
+}
