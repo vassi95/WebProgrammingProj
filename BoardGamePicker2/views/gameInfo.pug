@@ -7,13 +7,14 @@ html
     body
         div(class='form')
             h3 Game Info:
-            p Title: #{game.title} 
-            p Category: #{game.category}
-            p Min Players: #{game.min_players} 
-            p Max Players: #{game.max_players} 
-            p Playing Time: #{game.playing_time} 
-            p Appropriate for Age: #{game.age} 
-            p Complexity: #{game.complexity} 
-            p Description: #{game.description} 
+            img( height="200" width="200" src="data:image/jpeg;base64,"+game.image)
+            p <b>Title:</b> #{game.title} 
+            p <b>Category:</b> #{game.category}
+            p <b>Min Players:</b> #{game.min_players} 
+            p <b>Max Players:</b> #{game.max_players} 
+            p <b>Playing Time:</b> #{game.playing_time} min
+            p <b>Appropriate for Age:</b> #{game.age}+
+            p <b>Complexity:</b> #{game.complexity}/10
+            p <b>Description:</b> #{game.description} 
 
         
